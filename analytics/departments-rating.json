@@ -1,0 +1,29 @@
+{
+  "departments": [
+    {
+      "name": "Отдел №13",
+      "success": 72,
+      "fail": 28
+    },
+    {
+      "name": "Отдел №7",
+      "success": 55,
+      "fail": 45
+    },
+    {
+      "name": "Отдел №21",
+      "success": 81,
+      "fail": 19
+    },
+    {
+      "name": "Отдел №4",
+      "success": 63,
+      "fail": 37
+    },
+    {
+      "name": "Отдел №11",
+      "success": 48,
+      "fail": 52
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "top3": [
+    {
+      "rank": 1,
+      "name": "Гольшманова Юлия",
+      "role": "Агент по продажам",
+      "deals": 15,
+      "avatar": "avatar1.png"
+    },
+    {
+      "rank": 2,
+      "name": "Валентин Дядька",
+      "deals": 12,
+      "avatar": "avatar2.png"
+    },
+    {
+      "rank": 3,
+      "name": "Валентин Дядька",
+      "deals": 12,
+      "avatar": "avatar3.png"
+    }
+  ],
+  "currentUser": {
+    "rank": 225,
+    "name": "Это вы",
+    "deals": 12
+  },
+  "others": [
+    { "rank": 4, "name": "Никонова Данута", "department": "отдел 12" },
+    { "rank": 5, "name": "Никонова Данута", "department": "отдел 12" },
+    { "rank": 6, "name": "Никонова Данута", "department": "отдел 12" },
+    { "rank": 7, "name": "Никонова Данута", "department": "отдел 12" },
+    { "rank": 8, "name": "Никонова Данута", "department": "отдел 12" },
+    { "rank": 9, "name": "Никонова Данута", "department": "отдел 12" },
+    { "rank": 10, "name": "Никонова Данута", "department": "отдел 12" },
+    { "rank": 11, "name": "Никонова Данута", "department": "отдел 12" },
+    { "rank": 12, "name": "Никонова Данута", "department": "отдел 12" },
+    { "rank": 13, "name": "Никонова Данута", "department": "отдел 12" },
+    { "rank": 14, "name": "Никонова Данута", "department": "отдел 12" },
+    { "rank": 15, "name": "Никонова Данута", "department": "отдел 12" }
+  ]
+}

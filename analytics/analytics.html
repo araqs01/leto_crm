@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics Content Area</title>
+    <link rel="stylesheet" href="analytics.css" />
+  </head>
+  <body>
+    <main class="analytics-wrapper">
+      <header class="analytics-header">
+        <h1 class="analytics-title">Динамика работы</h1>
+        <div class="analytics-filters" aria-label="Фильтры аналитики">
+          <select id="departmentSelect" class="analytics-filter-control" aria-label="Отдел"></select>
+          <select id="quarterSelect" class="analytics-filter-control" aria-label="Квартал"></select>
+          <select id="yearSelect" class="analytics-filter-control" aria-label="Год"></select>
+          <select id="dateFromSelect" class="analytics-filter-control is-hidden" aria-label="от дд.мм.гггг">
+            <option disabled selected hidden>от дд.мм.гггг</option>
+          </select>
+          <select id="dateToSelect" class="analytics-filter-control is-hidden" aria-label="до дд.мм.гггг">
+            <option disabled selected hidden>до дд.мм.гггг</option>
+          </select>
+          <button class="analytics-btn-search" type="button">Поиск</button>
+          <button class="analytics-btn-reset" type="button">Очистить</button>
+        </div>
+      </header>
+
+      <nav class="analytics-tabs" role="tablist" aria-label="Разделы аналитики">
+        <button class="analytics-tab is-active" type="button" role="tab" aria-selected="true" data-tab="departments-dynamics">
+            Динамика работы отделов
+        </button>
+        <button class="analytics-tab" type="button" role="tab" aria-selected="false" data-tab="departments-rating">
+            Рейтинг отделов
+        </button>
+        <button class="analytics-tab" type="button" role="tab" aria-selected="false" data-tab="employees-rating">
+            Рейтинг сотрудников
+        </button>
+        <button class="analytics-tab" type="button" role="tab" aria-selected="false" data-tab="objects-rating">
+            Рейтинг объектов
+        </button>
+      </nav>
+
+      <section class="analytics-container">
+        <button
+          class="analytics-filter-icon"
+          type="button"
+          aria-label="Фильтр (placeholder)"
+          title="Фильтр"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path
+              d="M3 5h18l-7 8v6l-4 2v-8L3 5z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+        </button>
+        <div class="analytics-floating-filter" id="analyticsFloatingFilter" data-active-panel="">
+          <div class="analytics-filter-panel analytics-filter-panel-dynamics" data-panel="departments-dynamics">
+            <select class="analytics-floating-select" id="analyticsFloatingEmployee" aria-label="Сотрудник">
+              <option disabled selected hidden>Сотрудник</option>
+            </select>
+            <select class="analytics-floating-select" id="analyticsFloatingType" aria-label="Вид">
+              <option disabled selected hidden>Вид</option>
+            </select>
+            <label class="analytics-floating-toggle">
+              Показать тенденцию
+              <input type="checkbox">
+              <span class="toggle-slider"></span>
+            </label>
+            <button class="analytics-floating-search" type="button">Поиск</button>
+          </div>
+          <div class="analytics-filter-panel analytics-filter-panel-departments-rating" data-panel="departments-rating">
+            <select class="analytics-floating-select" id="analyticsFloatingTypeRating" aria-label="Вид">
+              <option disabled selected hidden>Вид</option>
+            </select>
+            <label class="analytics-floating-toggle">
+              Новая формула
+              <input type="checkbox">
+              <span class="toggle-slider"></span>
+            </label>
+            <label class="analytics-floating-toggle">
+              В настоящий момент
+              <input type="checkbox">
+              <span class="toggle-slider"></span>
+            </label>
+            <label class="analytics-floating-toggle">
+              Годовой
+              <input type="checkbox">
+              <span class="toggle-slider"></span>
+            </label>
+            <button class="analytics-floating-search" type="button">Поиск</button>
+          </div>
+          <div class="analytics-filter-panel analytics-filter-panel-objects-rating" data-panel="objects-rating">
+            <select class="analytics-floating-select" id="analyticsFloatingQuarterObjects" aria-label="Квартал">
+              <option disabled selected hidden>Квартал</option>
+            </select>
+            <select class="analytics-floating-select" id="analyticsFloatingYearObjects" aria-label="Год">
+              <option disabled selected hidden>Год</option>
+            </select>
+            <button class="analytics-floating-search" type="button">Поиск</button>
+          </div>
+        </div>
+        <div class="analytics-tab-panel is-active" data-content="departments-dynamics" role="tabpanel">
+          <div class="analytics-chart-placeholder">
+<!--            <div class="analytics-table-header" aria-hidden="true">-->
+<!--            </div>-->
+            <div id="analytics-chart-container"></div>
+          </div>
+        </div>
+
+        <div class="analytics-tab-panel" data-content="departments-rating" role="tabpanel" hidden>
+          <div class="analytics-chart-placeholder">
+            <div id="analytics-departments-rating-container" class="analytics-departments-rating-grid"></div>
+          </div>
+        </div>
+
+        <div class="analytics-tab-panel" data-content="departments-table-rating" role="tabpanel" hidden>
+          <div class="analytics-chart-placeholder">
+            <div class="analytics-table-header" aria-hidden="true">
+<!--              <span class="analytics-table-filter-mark">-->
+<!--                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">-->
+<!--                  <path-->
+<!--                    d="M3 5h18l-7 8v6l-4 2v-8L3 5z"-->
+<!--                    fill="none"-->
+<!--                    stroke="currentColor"-->
+<!--                    stroke-width="1.8"-->
+<!--                    stroke-linejoin="round"-->
+<!--                  ></path>-->
+<!--                </svg>-->
+<!--              </span>-->
+            </div>
+          </div>
+        </div>
+
+        <div class="analytics-tab-panel" data-content="employees-rating" role="tabpanel" hidden>
+<!--          <div class="analytics-chart-placeholder">-->
+<!--          </div>-->
+            <div id="analytics-employees-rating-container" class="analytics-employees-rating-layout"></div>
+        </div>
+
+        <div class="analytics-tab-panel" data-content="objects-rating" role="tabpanel" hidden>
+          <div class="analytics-chart-placeholder">
+            <div id="analytics-objects-rating-container"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="filters-loader.js"></script>
+    <script src="dynamics-table.js"></script>
+    <script src="departments-rating-chart.js"></script>
+    <script src="employees-rating.js"></script>
+    <script src="objects-rating-table.js"></script>
+    <script src="analytics.js"></script>
+  </body>
+</html>
