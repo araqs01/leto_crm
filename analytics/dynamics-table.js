@@ -63,6 +63,13 @@
     columns.forEach((col, idx) => {
       const th = document.createElement("th");
       th.className = "analytics-dynamics-th";
+      if (idx === 0) {
+        th.classList.add("analytics-dynamics-col-name");
+      } else if (idx === 1) {
+        th.classList.add("analytics-dynamics-col-total");
+      } else {
+        th.classList.add("analytics-dynamics-col-date");
+      }
       if (idx < 2) {
         th.classList.add("analytics-dynamics-sticky");
       }
@@ -79,19 +86,21 @@
       tr.className = "analytics-dynamics-tr";
 
       const nameCell = document.createElement("td");
-      nameCell.className = "analytics-dynamics-td analytics-dynamics-sticky";
+      nameCell.className =
+        "analytics-dynamics-td analytics-dynamics-sticky analytics-dynamics-col-name";
       nameCell.textContent = row.name || "";
       tr.appendChild(nameCell);
 
       const totalCell = document.createElement("td");
-      totalCell.className = "analytics-dynamics-td analytics-dynamics-sticky analytics-dynamics-total";
+      totalCell.className =
+        "analytics-dynamics-td analytics-dynamics-sticky analytics-dynamics-total analytics-dynamics-col-total";
       const totalVal = row.total;
       renderValue(totalCell, totalVal);
       tr.appendChild(totalCell);
 
       dateColumns.forEach((dateKey) => {
         const td = document.createElement("td");
-        td.className = "analytics-dynamics-td analytics-dynamics-date";
+        td.className = "analytics-dynamics-td analytics-dynamics-date analytics-dynamics-col-date";
         const val = row.values?.[dateKey];
         renderValue(td, val);
         tr.appendChild(td);

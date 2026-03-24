@@ -10,50 +10,95 @@
 
   function createTrophyIcon() {
     const wrapper = createEl("div", "analytics-top1-trophy");
-    wrapper.innerHTML =
-      '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4h10v2h2a1 1 0 0 1 1 1v2c0 2.97-2.16 5.44-5 5.91V17h2v2H7v-2h2v-2.09C6.16 14.44 4 11.97 4 9V7a1 1 0 0 1 1-1h2V4zm-1 4v1c0 1.86 1.28 3.41 3 3.86V8H6zm12 0h-3v4.86c1.72-.45 3-2 3-3.86V8z" fill="currentColor"/></svg>';
+
+    const img = document.createElement("img");
+    img.src = "/assets/img/bgs/solar_cup-bold.svg";
+    img.alt = "trophy";
+
+    wrapper.appendChild(img);
     return wrapper;
   }
 
-  function createAvatar(name) {
+  function createAvatar(src) {
     const avatar = createEl("div", "analytics-employee-avatar");
-    const initials = (name || "")
-      .split(" ")
-      .filter(Boolean)
-      .slice(0, 2)
-      .map((part) => part[0]?.toUpperCase() || "")
-      .join("");
-    avatar.textContent = initials || "A";
+
+    const img = document.createElement("img");
+    img.src = src;
+
+    avatar.appendChild(img);
     return avatar;
   }
 
   function createTopCard(employee) {
     const rank = Number(employee?.rank) || 0;
+
     const cardClass =
-      rank === 1
-        ? "analytics-top-card analytics-top-card-rank1"
-        : rank === 2
-          ? "analytics-top-card analytics-top-card-rank2"
-          : "analytics-top-card analytics-top-card-rank3";
+        rank === 1
+            ? "analytics-top-card analytics-top-card-rank1"
+            : rank === 2
+                ? "analytics-top-card analytics-top-card-rank2"
+                : "analytics-top-card analytics-top-card-rank3";
+
     const card = createEl("div", cardClass);
 
+    const person = createEl("div", "analytics-top-card-person");
+    const mediaRow = createEl("div", rank === 1 ? "analytics-top1-icons-row" : "analytics-top-icons-row");
+
     if (rank === 1) {
-      card.appendChild(createTrophyIcon());
-      const counter = createEl("div", "analytics-top1-counter");
-      counter.appendChild(createEl("div", "analytics-top1-counter-label", "Сделок (шт)"));
-      counter.appendChild(createEl("div", "analytics-top1-counter-value", String(employee.deals ?? 0)));
-      card.appendChild(counter);
+      mediaRow.appendChild(createTrophyIcon());
     }
 
-    const person = createEl("div", "analytics-top-card-person");
-    person.appendChild(createAvatar(employee?.name));
-    person.appendChild(createEl("div", "analytics-top-card-name", `#${rank} ${employee?.name || ""}`));
-    if (employee?.role) {
-      person.appendChild(createEl("div", "analytics-top-card-role", employee.role));
-    } else {
-      person.appendChild(createEl("div", "analytics-top-card-role analytics-top-card-deals", `Сделки: ${employee?.deals ?? 0}`));
-    }
+    const avatarSrc =
+        rank === 1
+            ? "/assets/img/bgs/employee_girl.jpg"
+            : "/assets/img/bgs/man_employee.jpg";
+
+    mediaRow.appendChild(createAvatar(avatarSrc));
+    person.appendChild(mediaRow);
+
+    person.appendChild(
+        createEl(
+            "div",
+            "analytics-top-card-name",
+            `#${rank} ${employee?.name || ""}`
+        )
+    );
+
+    // if (employee?.role) {
+    //   person.appendChild(
+    //       createEl("div", "analytics-top-card-role", employee.role)
+    //   );
+    // }
+
     card.appendChild(person);
+
+    if (rank !== 1) {
+      const badge = createEl(
+          "div",
+          "analytics-top-deals-badge",
+          `Сделки: ${employee.deals ?? 0}`
+      );
+
+      card.appendChild(badge);
+    }
+
+    if (rank === 1) {
+      const counter = createEl("div", "analytics-top1-counter");
+
+      counter.appendChild(
+          createEl("div", "analytics-top1-counter-label", "Сделок (шт)")
+      );
+
+      counter.appendChild(
+          createEl(
+              "div",
+              "analytics-top1-counter-value",
+              String(employee.deals ?? 0)
+          )
+      );
+
+      card.appendChild(counter);
+    }
 
     return card;
   }
@@ -87,7 +132,7 @@
     const others = Array.isArray(data?.others) ? data.others : [];
 
     top3.forEach((employee) => leftCol.appendChild(createTopCard(employee)));
-    leftCol.appendChild(createCurrentUserCard(data?.currentUser || {}));
+    // leftCol.appendChild(createCurrentUserCard(data?.currentUser || {}));
     others.forEach((item) => rightList.appendChild(createRankingItem(item)));
     rightCol.appendChild(rightList);
 

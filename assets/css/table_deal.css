@@ -1,0 +1,452 @@
+.tbl__deals_department{
+    background-color:#fff;
+    margin:20px 0;
+    padding:0;
+    color:#888;
+    -webkit-box-shadow: 3px 6px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 3px 6px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 3px 6px 8px 0px rgba(34, 60, 80, 0.2);
+}
+.tbl__deals_department h2{
+    margin:0;
+    font-size: 1.2rem;;
+}
+.tbl__deals_department__header {
+    height: 50px;
+    padding:5px 20px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    user-select: none;
+}
+
+.tbl__deals_department__header .icons{
+    display:flex;
+    justify-content: end;
+}
+
+.tbl__deals_department__header .tbl__icon{
+    width: 20px;
+    height: 20px;
+    margin-left:20px;
+    outline: none;
+}
+.tbl__deals_department__header .icon_print > svg{
+    fill:#888888;
+    user-select: none;
+    pointer-events: none;
+}
+.tbl__deals_department__header .icon_roller > svg{
+    fill:#888888;
+    transform:rotateZ(180deg);
+    transition:transform 0.3s ease;
+    user-select: none;
+    pointer-events: none;
+}
+.rollup .icon_roller > svg{
+    transform:rotateZ(0deg);
+}
+
+.tbl__deals_department__body{
+    overflow-x: scroll;
+}
+
+.tbl__deals_department__body table{
+    width: 100%;
+    font-size: 0.9rem;
+    table-layout: fixed;
+}
+
+.tbl__deals_department__body th, 
+.tbl__deals_department__body td{
+    height: 30px;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.tbl__deals_department__body td{
+    
+    text-overflow: ellipsis;
+}
+
+
+
+
+.tbl__deals_department__body td{
+    text-align: center;
+}
+.tbl__deals_department__body thead{
+    background-color:var(--tbl__deals-bcg);
+}
+
+.tbl__deals_department__body  tr{
+    
+}
+
+.tbl__deals_department__body  th{
+    padding:10px 0;
+    position: relative;
+    transition: width 0.3s ease-out;
+}
+.tbl__deals_department__body th.collapsable{
+    position: relative;
+    cursor:pointer;
+}
+.tbl__deals_department__body th.collapsed,
+.tbl__deals_department__body td.collapsed{
+    color:#ccc;
+    font-size: 0.5rem;
+    width: 20px;
+}
+
+.tbl__deals_department__body .open_deals{
+    width: 80px;
+}
+
+.tbl__deals_department__body .closed_deals{
+    width: 60px;
+}
+.tbl__deals_department__body .summ_to_raiting{
+    width: 60px;
+}
+.tbl__deals_department__body .name{
+    width: 200px;
+}
+.tbl__deals_department__body .number{
+    width: 30px;
+}
+.tbl__deals_department__body .date_open{
+    width: 80px;
+}
+.tbl__deals_department__body .workers{
+    width: 150px;
+}
+.tbl__deals_department__body .obj{
+    width: 80px;
+}
+.tbl__deals_department__body .area{
+    width: 30px;
+}
+.tbl__deals_department__body .summ_money{
+    width: 80px;
+}
+.tbl__deals_department__body .summ_money_area{
+    width: 80px;
+}
+.tbl__deals_department__body .date_close{
+    width: 80px;
+}
+.tbl__deals_department__body .expenses{
+    width: 80px;
+}
+.tbl__deals_department__body .participation{
+    width: 60px;
+}
+.tbl__deals_department__body .summ_open{
+    width: 80px;
+}
+.tbl__deals_department__body .summ_close{
+    width: 80px;
+}
+.tbl__deals_department__body .summ_rating{
+    width: 80px;
+}
+.tbl__deals_department__body .id_client{
+    width: 70px;
+}
+.tbl__deals_department__body .promotion{
+    width: 80px;
+}
+.tbl__deals_department__body .icons{
+    width: 70px;
+}
+
+
+.tbl__deals_department__body td.open_deals{
+ 
+}
+.tbl__deals_department__body td.closed_deals{
+ 
+}
+.tbl__deals_department__body td.summ_to_raiting{
+ 
+}
+.tbl__deals_department__body td.name{
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+}
+.tbl__deals_department__body td.name > div{
+    display:flex;
+    align-items:center;
+    justify-content: flex-start;
+    gap:5px;
+    margin-left:10px;
+}
+
+.tbl__deals_department__body td.number{
+    color:#f0a;
+    border-right:1px solid #ccc;
+}
+.tbl__deals_department__body td.date_open{
+
+}
+.tbl__deals_department__body td.workers{
+
+}
+.tbl__deals_department__body td.obj{
+
+}
+.tbl__deals_department__body td.area{
+
+}
+.tbl__deals_department__body td.summ_money{
+
+}
+.tbl__deals_department__body td.summ_money_area{
+
+}
+.tbl__deals_department__body td.date_close{
+
+}
+.tbl__deals_department__body td.expenses{
+
+}
+.tbl__deals_department__body td.participation{
+
+}
+.tbl__deals_department__body td.summ_open{
+    font-family: 'Inter-Italic';
+    color:#0af
+}
+.tbl__deals_department__body td.summ_close{
+    font-family: 'Inter-Italic';
+    color:#f0a;
+}
+.tbl__deals_department__body td.summ_rating{
+    font-family: 'Inter-Italic';
+    color:#f0a;
+}
+.tbl__deals_department__body td.id_client{
+
+}
+.tbl__deals_department__body td.promotion{
+
+}
+.tbl__deals_department__body td.icons{
+}
+.tbl__deals_department__body td.icons > div{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap:5px;
+    margin-right:5px;
+}
+
+
+.tbl__deals_department__body tr.top td{
+    border-top:1px solid #888;
+}
+
+tr:not(.divider):hover td.number,
+tr:not(.divider):hover td.date_open,
+tr:not(.divider):hover td.workers,
+tr:not(.divider):hover td.obj,
+tr:not(.divider):hover td.area,
+tr:not(.divider):hover td.summ_money,
+tr:not(.divider):hover td.summ_money_area, 
+tr:not(.divider):hover td.date_close,
+tr:not(.divider):hover td.expenses,
+tr:not(.divider):hover td.participation,
+tr:not(.divider):hover td.summ_open,
+tr:not(.divider):hover td.summ_close,
+tr:not(.divider):hover td.summ_rating,
+tr:not(.divider):hover td.id_client,
+tr:not(.divider):hover td.promotion,
+tr:not(.divider):hover td.icons{
+    background-color:#f8f8f8;
+    color:#000;
+}
+
+
+.tbl__deals_department__body tr.select1 td.number,
+.tbl__deals_department__body tr.select1 td.date_open,
+.tbl__deals_department__body tr.select1 td.workers,
+.tbl__deals_department__body tr.select1 td.obj,
+.tbl__deals_department__body tr.select1 td.area,
+.tbl__deals_department__body tr.select1 td.summ_money,
+.tbl__deals_department__body tr.select1 td.summ_money_area, 
+.tbl__deals_department__body tr.select1 td.date_close,
+.tbl__deals_department__body tr.select1 td.expenses,
+.tbl__deals_department__body tr.select1 td.participation,
+.tbl__deals_department__body tr.select1 td.summ_open,
+.tbl__deals_department__body tr.select1 td.summ_close,
+.tbl__deals_department__body tr.select1 td.summ_rating,
+.tbl__deals_department__body tr.select1 td.id_client,
+.tbl__deals_department__body tr.select1 td.promotion,
+.tbl__deals_department__body tr.select1 td.icons{
+    background-color:var(--tbl__deals-select1-bcg);
+}
+
+tr.select1 td.number{
+    color:#f0a;    
+}
+
+tr.select1 td.date_open,
+tr.select1 td.workers,
+tr.select1 td.obj,
+tr.select1 td.area,
+tr.select1 td.summ_money,
+tr.select1 td.summ_money_area, 
+tr.select1 td.date_close,
+tr.select1 td.expenses,
+tr.select1 td.participation,
+tr.select1 td.id_client,
+tr.select1 td.promotion,
+tr.select1 td.icons{
+    color:#666;    
+}
+
+tr.select1 td.summ_open{
+    color:#0af
+}
+tr.select1 td.summ_close,
+tr.select1 td.summ_rating{
+    color:#f0a;
+}
+
+
+.tbl__deals_department__body tr.select2 td.number,
+.tbl__deals_department__body tr.select2 td.date_open,
+.tbl__deals_department__body tr.select2 td.workers,
+.tbl__deals_department__body tr.select2 td.obj,
+.tbl__deals_department__body tr.select2 td.area,
+.tbl__deals_department__body tr.select2 td.summ_money,
+.tbl__deals_department__body tr.select2 td.summ_money_area, 
+.tbl__deals_department__body tr.select2 td.date_close,
+.tbl__deals_department__body tr.select2 td.expenses,
+.tbl__deals_department__body tr.select2 td.participation,
+.tbl__deals_department__body tr.select2 td.summ_open,
+.tbl__deals_department__body tr.select2 td.summ_close,
+.tbl__deals_department__body tr.select2 td.summ_rating,
+.tbl__deals_department__body tr.select2 td.id_client,
+.tbl__deals_department__body tr.select2 td.promotion,
+.tbl__deals_department__body tr.select2 td.icons{
+    background-color:var(--tbl__deals-select2-bcg);
+}
+tr.select2 td.number{
+    color:#f0a;    
+}
+tr.select2 td.date_open,
+tr.select2 td.workers,
+tr.select2 td.obj,
+tr.select2 td.area,
+tr.select2 td.summ_money,
+tr.select2 td.summ_money_area, 
+tr.select2 td.date_close,
+tr.select2 td.expenses,
+tr.select2 td.participation,
+tr.select2 td.id_client,
+tr.select2 td.promotion,
+tr.select2 td.icons{
+    color:#666;
+}
+
+tr.select2 td.summ_open{
+    color:#0af
+}
+tr.select2 td.summ_close,
+tr.select2 td.summ_rating{
+    color:#f0a;
+}
+
+.tbl_collapsable_btn_wrap{
+    position: absolute;
+    top: 3px;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #bbb;
+    border-radius:2px;
+    color:#aaa;
+    cursor:pointer;
+}
+.tbl_collapsable_btn_wrap:after,
+.tbl_collapsable_btn_wrap:before{
+    content: "";
+    position: absolute;
+    top: 4px;
+    right: 1px;
+    display: block;
+    width: 6px;
+    background: #aaa;
+    height: 1px;
+}
+
+th.collapsed .tbl_collapsable_btn_wrap:before{
+    transform:rotateZ(90deg);
+}
+
+@media only screen and (max-width: 1280px){
+    .tbl__deals_department__body table{
+        font-size: 0.8rem;
+    }
+    .tbl__deals_department__header {
+        height: 38px;
+    }
+    .tbl__deals_department__body thead th{
+        padding: 5px 0;
+    }
+    .tbl__deals_department__body .open_deals{
+        width: 60px;
+    }
+    .tbl__deals_department__body .closed_deals,
+    .tbl__deals_department__body .summ_to_raiting{
+        width: 50px;
+    }
+    .tbl__deals_department__body .name{
+        width: 170px;
+    }
+    .tbl__deals_department__body .number{
+        width: 22px;
+    }
+    .tbl__deals_department__body .date_open{
+        width: 50px;
+    }
+    .tbl__deals_department__body .workers {
+        width: 100px;
+    }
+    .tbl__deals_department__body .area{
+        width: 20px;
+    }
+    .tbl__deals_department__body .summ_money {
+        width: 62px;
+    }
+    .tbl__deals_department__body .summ_money_area{
+        width: 62px;
+    }
+    .tbl__deals_department__body .date_close{
+        width: 50px;
+    }
+    .tbl__deals_department__body .expenses{
+        width: 50px;
+    }
+    .tbl__deals_department__body .participation{
+        width: 55px;
+        font-size: 0.8rem;
+    }
+    .tbl__deals_department__body .summ_open,
+    .tbl__deals_department__body .summ_close,
+    .tbl__deals_department__body .summ_rating{
+        width: 70px;
+    }
+
+    .tbl__deals_department__header .icons>a{
+        width: 15px;
+        height: 15px;
+        margin-left:15px;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+
+}

@@ -1,0 +1,11 @@
+html, body{
+    font-family: 'Nunito Sans', sans-serif;
+    background-color:#ffffff;
+    color:#565656;
+}
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

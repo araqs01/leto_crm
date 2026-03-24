@@ -1,0 +1,200 @@
+/*
+* login.css
+*/
+@import url(normalize.css);
+@import url(fonts.css);
+
+
+html, body{
+    width: 100%;
+    height: 100%;
+    overflow:hidden;
+}
+
+body{
+    font-family: 'Inter-Regular';
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.login_container{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    background-color:#f5fbfe;
+    position: relative;
+    /* background-image:url(/assets/img/bgs/bg01.jpg); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* background-position: center; */
+}
+
+.image_bcgs{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.image_bcg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity:0;
+    will-change: opacity;
+    transition: 1s opacity ease;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;    
+}
+.image_bcg.preview{
+    opacity:1;
+}
+
+.login_panel{
+    min-width: 320px;
+    width: 500px;
+    background-color:rgba(255,255,255,0.7);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.login_form__container{
+    width: 70%;
+    flex-direction: column;
+    align-items: center;
+    display:flex;
+    transform:translateY(-7rem);
+}
+
+.login_form__logo{
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEyNSIgaGVpZ2h0PSIzMTEiIHZpZXdCb3g9IjAgMCAxMTI1IDMxMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0yODYuMzk0IDMxMC43MjdIMjQ3LjkwNEwxMzMuMzYxIDU1Ljc2NjJMMTMuNDkyIDMxMC43MjdIMEwxNDMuMTk3IDQuMjEyMDRMMjg2LjM5NCAzMTAuNzI3WiIgZmlsbD0iIzBFMEUzMiIvPg0KPHBhdGggZD0iTTUwNi45ODMgMzA2LjQzMkgzNDIuNTk3VjQuMjEyMDRINTA2Ljk4M1YxNi43NjY2SDM3Ny4xOTZWMTk1LjgzNUg0OTguMjkyVjIwOC4zOUgzNzcuMTk2VjI5My43MTJINTA2Ljk4M1YzMDYuNDMyWiIgZmlsbD0iIzBFMEUzMiIvPg0KPHBhdGggZD0iTTU0NS45NyAxNi43NjcyVjQuMjEyNjVINzUzLjY0N1YxNi43NjcySDY2Ny4xNVYzMDYuMzVINjMyLjU1VjE2Ljc2NzJINTQ1Ljk3WiIgZmlsbD0iIzBFMEUzMiIvPg0KPHBhdGggZD0iTTEwNzcuMjQgMjY1LjYyOUMxMDQ1LjM3IDI5NS42OTUgMTAwNS4wNiAzMTAuNzI3IDk1Ni4zMDkgMzEwLjcyN0M5MDcuNTU2IDMxMC43MjcgODY3LjI0NiAyOTUuNjk1IDgzNS4zNzggMjY1LjYyOUM4MDMuNTExIDIzNS41NjQgNzg3LjUzNSAxOTguODA5IDc4Ny41MzUgMTU1LjM2NEM3ODcuNTM1IDExMS45MTggODAzLjQyOCA3NS4xNjI2IDgzNS4zNzggNDUuMDk3NUM4NjcuMjQ2IDE1LjAzMjUgOTA3LjU1NiAwIDk1Ni4zMDkgMEMxMDA1LjA2IDAgMTA0NS4zNyAxNS4wMzI1IDEwNzcuMjQgNDUuMDk3NUMxMTA5LjExIDc1LjE2MjYgMTEyNSAxMTEuOTE4IDExMjUgMTU1LjM2NEMxMTI1IDE5OC44MDkgMTEwOS4xMSAyMzUuNTY0IDEwNzcuMjQgMjY1LjYyOVpNMTA0OS4xIDQ5LjgwNTVDMTAyMi4xMSAxOS45ODgzIDk5MS4yMzkgNS4xMjA5NyA5NTYuMzA5IDUuMTIwOTdDOTIxLjM3OSA1LjEyMDk3IDg5MC41MDUgMTkuOTg4MyA4NjMuNTIxIDQ5LjgwNTVDODM2LjUzNyA3OS42MjI4IDgyMy4wNDUgMTE0LjgwOSA4MjMuMDQ1IDE1NS4zNjRDODIzLjA0NSAxOTUuOTE4IDgzNi41MzcgMjMxLjEwNCA4NjMuNTIxIDI2MC45MjJDODkwLjUwNSAyOTAuNzM5IDkyMS4zNzkgMzA1LjYwNiA5NTYuMzA5IDMwNS42MDZDOTkxLjIzOSAzMDUuNjA2IDEwMjIuMTEgMjkwLjczOSAxMDQ5LjEgMjYwLjkyMkMxMDc2LjA4IDIzMS4xMDQgMTA4OS41NyAxOTUuOTE4IDEwODkuNTcgMTU1LjM2NEMxMDg5LjU3IDExNC44MDkgMTA3Ni4wOCA3OS42MjI4IDEwNDkuMSA0OS44MDU1WiIgZmlsbD0iIzBFMEUzMiIvPg0KPC9zdmc+);
+    width: 232px;
+    height: 64px;
+    margin-bottom:3rem;
+    background-repeat:no-repeat;
+    background-size:contain;
+}
+
+.leto_form{
+    width: 100%;
+    padding:10px 20px;
+}
+
+.leto_form input, 
+.leto_form button{
+    width: 100%;
+    height: 44px;
+    padding:8px 12px;
+    border-radius: 0.25rem;
+    border-width:1px;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.3s;
+    transition-property: all;
+}
+
+.leto_form input{
+    background-color: rgb(232, 243, 255);
+    color: #080835;
+}
+
+
+
+.leto_form input:focus{
+    outline-style: none;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(82, 82, 113) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+}
+
+.leto_form input[type="password"]{
+    padding-right:40px;
+}
+.leto_form input.error{
+    border-color:red;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 0, 0) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+}
+
+.leto_form__input_wrapper{
+    margin:0.5rem 0;
+    position: relative;
+}
+
+.leto_form__input_icon{
+    position: absolute;
+    top:0; right:0;
+    width: 44px;
+    height: 44px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    cursor:pointer;
+    user-select: none;
+}
+.icon_showpassword > svg{
+    display:none;
+}
+.icon_showpassword.open > svg{
+    display:block;
+}
+.icon_showpassword > svg+svg{
+    display:block;
+}
+.icon_showpassword.open > svg+svg{
+    display:none;
+}
+
+.leto_form__text{
+    margin:1rem 0;
+}
+
+.leto_form button{
+    margin-top:1rem;
+    color:#fff;
+    background-color: #080835;
+}
+
+.leto_form button:hover{
+    background-color:#525271;
+}
+
+
+.leto_form__text a{
+    font-size: 12px;
+    color:#080835;
+    
+}
+
+
+
+
+@media only screen and (max-width:450px){
+    .login_form__logo{
+        width: 167px;
+        height: 47px;
+        margin-bottom:1.5rem;
+    }
+    .login_panel{
+        width: 100%;
+    }
+    .login_form__container{
+        width: 90%;
+    }
+}
+
+@media only screen and (max-height:600px){
+    .login_form__container{
+        transform: none;
+    }
+}
+
+@media only screen and (max-height:350px){
+    .login_form__logo{
+        width: 167px;
+        height: 47px;
+        margin-bottom:1rem;
+    }
+}

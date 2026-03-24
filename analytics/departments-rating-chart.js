@@ -1,63 +1,79 @@
 (function (window, document) {
   const DEPARTMENTS_RATING_ENDPOINT = "departments-rating.json";
   const SVG_NS = "http://www.w3.org/2000/svg";
-  const OUTER_RADIUS = 60;
-  const INNER_RADIUS = 38;
-  const STROKE_WIDTH = OUTER_RADIUS - INNER_RADIUS;
-  const CIRCUMFERENCE = 2 * Math.PI * ((OUTER_RADIUS + INNER_RADIUS) / 2);
+  const CHART_SIZE = 320;
+  const SUCCESS_RADIUS = 132; // 264x264
+  const FAIL_RADIUS = 100; // 170x170
+  const CENTER = CHART_SIZE / 2;
 
   function createSvgElement(tagName) {
     return document.createElementNS(SVG_NS, tagName);
   }
 
-  function createDonutChart(successPercent) {
+  function polarToCartesian(cx, cy, radius, angleDeg) {
+    const rad = (angleDeg * Math.PI) / 180;
+    return {
+      x: cx + radius * Math.cos(rad),
+      y: cy + radius * Math.sin(rad)
+    };
+  }
+
+  function createSectorPath(cx, cy, radius, startAngle, endAngle) {
+    const start = polarToCartesian(cx, cy, radius, startAngle);
+    const end = polarToCartesian(cx, cy, radius, endAngle);
+    const delta = ((endAngle - startAngle) % 360 + 360) % 360;
+    const largeArcFlag = delta > 180 ? 1 : 0;
+
+    return [
+      `M ${cx} ${cy}`,
+      `L ${start.x} ${start.y}`,
+      `A ${radius} ${radius} 0 ${largeArcFlag} 1 ${end.x} ${end.y}`,
+      "Z"
+    ].join(" ");
+  }
+
+  function createSegmentChart(successPercent, failPercent) {
     const normalizedSuccess = Math.max(0, Math.min(100, Number(successPercent) || 0));
-    const failPercent = 100 - normalizedSuccess;
-    const successLength = (CIRCUMFERENCE * normalizedSuccess) / 100;
-    const failLength = (CIRCUMFERENCE * failPercent) / 100;
+    const normalizedFail = Math.max(0, Math.min(100, Number(failPercent) || 100 - normalizedSuccess));
+    const total = normalizedSuccess + normalizedFail || 100;
+    const successAngle = (normalizedSuccess / total) * 360;
+    const failAngle = (normalizedFail / total) * 360;
 
     const svg = createSvgElement("svg");
-    svg.classList.add("analytics-donut-chart");
-    svg.setAttribute("viewBox", "0 0 140 140");
-    svg.setAttribute("aria-label", `Успех ${normalizedSuccess}%`);
+    svg.classList.add("analytics-segment-chart");
+    svg.setAttribute("viewBox", `0 0 ${CHART_SIZE} ${CHART_SIZE}`);
+    svg.setAttribute("aria-label", `Успех ${normalizedSuccess}%, отстают ${normalizedFail}%`);
     svg.setAttribute("role", "img");
 
-    const group = createSvgElement("g");
-    group.setAttribute("transform", "translate(70,70) rotate(-90)");
+    const successPath = createSvgElement("path");
+    successPath.setAttribute("d", createSectorPath(CENTER, CENTER, SUCCESS_RADIUS, -90, -90 + successAngle));
+    successPath.setAttribute("fill", "#BBF7D0");
 
-    const failArc = createSvgElement("circle");
-    failArc.setAttribute("r", String((OUTER_RADIUS + INNER_RADIUS) / 2));
-    failArc.setAttribute("cx", "0");
-    failArc.setAttribute("cy", "0");
-    failArc.setAttribute("fill", "none");
-    failArc.setAttribute("stroke", "#E97A7A");
-    failArc.setAttribute("stroke-width", String(STROKE_WIDTH));
-    failArc.setAttribute("stroke-dasharray", `${failLength} ${CIRCUMFERENCE - failLength}`);
-    failArc.setAttribute("stroke-linecap", "butt");
+    const failPath = createSvgElement("path");
+    failPath.setAttribute(
+      "d",
+      createSectorPath(CENTER, CENTER, FAIL_RADIUS, -90 + successAngle, -90 + successAngle + failAngle)
+    );
+    failPath.setAttribute("fill", "#FECACA");
 
-    const successArc = createSvgElement("circle");
-    successArc.setAttribute("r", String((OUTER_RADIUS + INNER_RADIUS) / 2));
-    successArc.setAttribute("cx", "0");
-    successArc.setAttribute("cy", "0");
-    successArc.setAttribute("fill", "none");
-    successArc.setAttribute("stroke", "#7FC8A9");
-    successArc.setAttribute("stroke-width", String(STROKE_WIDTH));
-    successArc.setAttribute("stroke-dasharray", `${successLength} ${CIRCUMFERENCE - successLength}`);
-    successArc.setAttribute("stroke-linecap", "butt");
-
-    group.appendChild(failArc);
-    group.appendChild(successArc);
-    svg.appendChild(group);
-
-    const centerText = createSvgElement("text");
-    centerText.setAttribute("x", "70");
-    centerText.setAttribute("y", "76");
-    centerText.setAttribute("text-anchor", "middle");
-    centerText.setAttribute("class", "analytics-donut-center-text");
-    centerText.textContent = `${normalizedSuccess}%`;
-    svg.appendChild(centerText);
+    svg.appendChild(successPath);
+    svg.appendChild(failPath);
 
     return svg;
+  }
+
+  function createBadge(text, kind) {
+    const badge = document.createElement("div");
+    badge.className = `analytics-segment-badge analytics-segment-badge-${kind}`;
+    badge.textContent = text;
+    return badge;
+  }
+
+  function createCallout(text, kind) {
+    const callout = document.createElement("div");
+    callout.className = `analytics-segment-callout analytics-segment-callout-${kind}`;
+    callout.textContent = text;
+    return callout;
   }
 
   function renderDepartmentsRatingCharts(data) {
@@ -66,7 +82,7 @@
       return;
     }
 
-    const departments = Array.isArray(data?.departments) ? data.departments : [];
+    const departments = Array.isArray(data?.departments) ? data.departments.slice(0, 4) : [];
     container.innerHTML = "";
 
     departments.forEach((department) => {
@@ -77,10 +93,16 @@
       title.className = "analytics-department-title";
       title.textContent = department.name || "";
 
-      const donut = createDonutChart(department.success);
+      const chartWrap = document.createElement("div");
+      chartWrap.className = "analytics-department-chart-wrap";
+      chartWrap.appendChild(createSegmentChart(department.success, department.fail));
+      chartWrap.appendChild(createBadge(`${department.success}%`, "fail"));
+      chartWrap.appendChild(createBadge(`${department.fail}%`, "success"));
+      chartWrap.appendChild(createCallout("Выполнили по мин. план", "fail"));
+      chartWrap.appendChild(createCallout("Отстают по мин. плану", "success"));
 
       card.appendChild(title);
-      card.appendChild(donut);
+      card.appendChild(chartWrap);
       container.appendChild(card);
     });
   }

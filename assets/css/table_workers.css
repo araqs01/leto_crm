@@ -1,0 +1,205 @@
+.tbl__workers{
+    max-width:1500px;
+    background-color:#fff;
+    margin:20px auto;
+    padding:0;
+    color:var(--text-2);
+    border: 1px solid hsl(204deg 20% 93%);
+    -webkit-box-shadow: 3px 6px 8px 0 rgba(34, 60, 80, 0.2);
+    box-shadow: 3px 6px 8px 0 rgba(34, 60, 80, 0.2);
+}
+.tbl__workers h2{
+    margin:0;
+    font-size: 1rem;;
+    line-height: 2rem;
+}
+.tbl__workers__header {
+    height: 50px;
+    padding:5px 20px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    user-select: none;
+}
+
+.tbl__workers__header .icons{
+    display:flex;
+    justify-content: end;
+}
+
+.tbl__workers__header .tbl__icon{
+    width: 20px;
+    height: 20px;
+    margin-left:20px;
+    outline: none;
+}
+.tbl__workers__header .icon_print > svg{
+    fill:#888888;
+    user-select: none;
+    pointer-events: none;
+}
+.tbl__workers__header .icon_roller > svg{
+    fill:#888888;
+    transform:rotateZ(180deg);
+    transition:transform 0.3s ease;
+    user-select: none;
+    pointer-events: none;
+}
+.tbl__workers__header_title{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tbl__workers__header_title > h2{
+    margin-right:10px;
+}
+.rollup .icon_roller > svg{
+    transform:rotateZ(0deg);
+}
+
+
+
+
+.tbl__workers__body{
+    overflow-x: auto;
+}
+
+.tbl__workers__body table{
+    width: 100%;
+    font-size: 0.9rem;
+    table-layout: fixed;
+}
+
+.tbl__workers__body th,
+.tbl__workers__body td{
+    height: 30px;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    padding:0;
+}
+.tbl__workers__body td{
+    text-overflow: ellipsis;
+}
+
+
+
+
+.tbl__workers__body td, .tbl__workers__body th{
+    /*text-align: center;*/
+    border-bottom: 1px solid #ddd;
+}
+.tbl__workers__body thead{
+    background-color:var(--tbl__deals-bcg);
+}
+
+.tbl__workers__body  tr{
+
+}
+
+.tbl__workers__body  th{
+    padding:10px 0;
+    position: relative;
+    color:inherit;
+    background-color:inherit;
+    transition: width 0.3s ease-out;
+}
+.tbl__workers__body th.collapsable{
+    position: relative;
+    cursor:pointer;
+}
+.tbl__workers__body th.collapsed,
+.tbl__workers__body td.collapsed{
+    color:#ccc;
+    font-size: 0.5rem;
+    width: 20px;
+}
+
+.tbl__workers__body tr:nth-child(even){
+    background-color:#fbfbfb;
+}
+.tbl__workers__body .number{
+    width: 30px;
+}
+.tbl__workers__body .fio{
+    width: 200px;
+}
+.tbl__workers__body .email{
+    width: 150px;
+}
+.tbl__workers__body .phone{
+    width: 150px;
+}
+.tbl__workers__body .phone_corp{
+    width: 150px;
+}
+.tbl__workers__body .date_welcome{
+    width: 80px;
+}
+.tbl__workers__body .date_fired{
+    width: 80px;
+}
+.tbl__workers__body .role{
+    width: 50px;
+}
+.tbl__workers__body .icons{
+    width: 80px;
+}
+
+.tbl__workers__body td.number{
+    text-align: center;
+}
+.tbl__workers__body td.fio{
+    text-align: left;
+}
+.tbl__workers__body td.email{
+    text-align: left;
+}
+.tbl__workers__body td.phone{
+    text-align: center;
+    font-size: 0.8rem;
+}
+.tbl__workers__body td.phone_corp{
+    text-align: center;
+    font-size: 0.8rem;
+}
+.tbl__workers__body td.date_welcome{
+    text-align: center;
+    font-size: 0.8rem;
+}
+.tbl__workers__body td.date_fired{
+    text-align: center;
+    font-size: 0.8rem;
+}
+.tbl__workers__body td.role{
+    text-align: center;
+}
+.tbl__workers__body td.role>div{
+    margin-left:auto;
+    margin-right:auto;
+}
+.tbl__workers__body td.icons{
+    text-align: center;
+}
+.tbl__workers__body td.icons > div{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap:5px;
+    margin-right:5px;
+}
+
+
+
+tr:hover td.number,
+tr:hover td.fio,
+tr:hover td.email,
+tr:hover td.phone,
+tr:hover td.phone_corp,
+tr:hover td.date_welcome,
+tr:hover td.date_fired,
+tr:hover td.role,
+tr:hover td.icons{
+    color:#000;
+}

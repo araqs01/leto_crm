@@ -1,0 +1,219 @@
+.tbl__simple{
+    /*max-width:1500px;*/
+    background-color:#fff;
+    margin:20px auto;
+    padding:0;
+    color:#888;
+    -webkit-box-shadow: 3px 6px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 3px 6px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 3px 6px 8px 0px rgba(34, 60, 80, 0.2);
+}
+.tbl__simple h2{
+    margin:0;
+    font-size: 1rem;;
+    line-height: 2rem;
+}
+.tbl__simple__header {
+    height: 50px;
+    padding:5px 20px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    user-select: none;
+}
+
+.tbl__simple__header .icons{
+    display:flex;
+    justify-content: end;
+}
+
+.tbl__simple__header .tbl__icon{
+    width: 20px;
+    height: 20px;
+    margin-left:20px;
+    outline: none;
+}
+.tbl__simple__header .icon_print > svg{
+    fill:#888888;
+    user-select: none;
+    pointer-events: none;
+}
+.tbl__simple__header .icon_roller > svg{
+    fill:#888888;
+    transform:rotateZ(180deg);
+    transition:transform 0.3s ease;
+    user-select: none;
+    pointer-events: none;
+}
+.tbl__simple__header_title{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tbl__simple__header_title > h2{
+    margin-right:10px;
+}
+.tbl__simple .rollup .icon_roller > svg{
+    transform:rotateZ(0deg);
+}
+
+
+
+.tbl__simple__body{
+    overflow-x: auto;
+}
+
+.tbl__simple__body table{
+    width: 100%;
+    font-size: 0.9rem;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.tbl__simple__body th,
+.tbl__simple__body td{
+    height: 30px;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    padding:5px 0;
+}
+.tbl__simple__body td{
+    text-overflow: ellipsis;
+}
+
+.tbl__simple__body td,
+.tbl__simple__body th{
+    border-bottom: 1px solid #ddd;
+}
+.tbl__simple__body thead{
+    background-color:var(--tbl__deals-bcg);
+}
+.tbl__simple__body  th{
+    padding:10px 0;
+    position: relative;
+    transition: width 0.3s ease-out;
+    color:var(--text-3);
+}
+.tbl__simple__body th.collapsable{
+    position: relative;
+    cursor:pointer;
+}
+.tbl__simple__body th.collapsed,
+.tbl__simple__body td.collapsed{
+    color:#ccc;
+    font-size: 0.5rem;
+    width: 20px;
+}
+
+.tbl__simple__body tr:nth-child(even), .tbl__simple__body tr:nth-child(even) td{
+    background-color:var(--gray-1);
+}
+.tbl__simple__body tr:nth-child(odd), .tbl__simple__body tr:nth-child(odd) td{
+    background-color:var(--gray-0);
+}
+
+
+
+
+.tbl__simple__body .number{
+    width: 50px;
+    text-align: center;
+}
+.tbl__simple__body .role_name_short{
+    width: 150px;
+    text-align: center;
+}
+.tbl__simple__body .role_name_short.tiny{
+    max-width: 50px;
+    text-align: center;
+}
+.tbl__simple__body .last_login{
+    text-align: center;
+    width: 200px;
+}
+.tbl__simple__body .post_name,
+.tbl__simple__body .reklama_name,
+.tbl__simple__body .location_name,
+.tbl__simple__body .roles,
+.tbl__simple__body .role_name,
+.tbl__simple__body .jurist_name,
+.tbl__simple__body .broker_name{
+    width: 200px;
+    text-align: left;
+}
+.tbl__simple__body .fio{
+    width: 300px;
+    text-align: left;
+}
+.tbl__simple__body .ip_address{
+    width: 270px;
+}
+
+.tbl__simple__body .object_name,
+.tbl__simple__body .right_name{
+    width: 500px;
+    text-align: left;
+}
+
+.tbl__simple__body .editable{
+    width: 185px;
+    text-align: center;
+}
+.tbl__simple__body .is_visible{
+    width: 75px;
+    text-align: center;
+}
+.tbl__simple__body .icons{
+    width: 80px;
+    text-align: center;
+}
+
+
+
+
+.tbl__simple__body td.role_name_short>div{
+    margin-left:auto;
+    margin-right:auto;
+}
+.tbl__simple__body td.icons > div{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap:5px;
+    margin-right:5px;
+}
+.tbl__simple__body td.is_visible{
+
+}
+.tbl__simple__body td.is_visible > svg{
+    fill:#ccc;
+    margin-left:auto;
+    margin-right:auto;
+}
+.tbl__simple__body td.is_visible.visible > svg{
+    fill:#888;
+}
+
+
+
+tr:hover td.number,
+tr:hover td.role_name,
+tr:hover td.role_name_short,
+tr:hover td.post_name,
+tr:hover td.reklama_name,
+tr:hover td.broker_name,
+tr:hover td.jurist_name,
+tr:hover td.location_name,
+tr:hover td.fio,
+tr:hover td.ip_address,
+tr:hover td.last_login,
+tr:hover td.object_name,
+tr:hover td.icons{
+    color:#000;
+}
+tr:hover td.is_visible.visible > svg{
+    fill:#000;
+}
+

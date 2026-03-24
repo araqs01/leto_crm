@@ -1,0 +1,52 @@
+@font-face {
+	font-family: 'Inter-Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Inter-Regular'),
+		url('/assets/fonts/Inter/Inter-Regular.woff') format('woff'), 
+		url('/assets/fonts/Inter/Inter-Regular.otf') format('otf');
+}
+ 
+@font-face {
+	font-family: 'Inter-Bold';
+	font-style: normal;
+	font-weight: bold;
+	src: local('Inter-Bold'),
+		url('/assets/fonts/Inter/Inter-Bold.woff2') format('woff2'), 
+		url('/assets/fonts/Inter/Inter-Bold.otf') format('otf');
+}
+ 
+@font-face {
+	font-family: 'Inter-Italic';
+	font-style: italic;
+	font-weight: normal;
+	src: local('Inter-Italic'),
+		url('/assets/fonts/Inter/Inter-Italic.woff2') format('woff2'), 
+		url('/assets/fonts/Inter/Inter-Italic.otf') format('otf');
+}
+
+@font-face {
+	font-family: 'Inter-Light';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Inter-Light'),
+		url('/assets/fonts/Inter/Inter-Light.woff2') format('woff2'), 
+		url('/assets/fonts/Inter/Inter-Light.otf') format('otf');
+}
+
+@font-face {
+	font-family: 'Inter-Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Inter'),
+		url('/assets/fonts/Inter/Inter-Regular.woff') format('woff'), 
+		url('/assets/fonts/Inter/Inter-Regular.otf') format('otf');
+}
+
+/* @font-face {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Inter'),
+		url('/assets/fonts/Inter/Inter-V.ttf') format('ttf');
+} */
