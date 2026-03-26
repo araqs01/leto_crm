@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="analytics.css" />
   </head>
   <body>
-    <main class="analytics-wrapper">
-      <header class="analytics-header">
+    <div class="analytics-wrapper">
+      <div class="analytics-header">
         <h1 class="analytics-title">Динамика работы</h1>
         <div class="analytics-filters" aria-label="Фильтры аналитики">
           <select id="departmentSelect" class="analytics-filter-control" aria-label="Отдел"></select>
@@ -23,10 +23,13 @@
           <button class="analytics-btn-search" type="button">Поиск</button>
           <button class="analytics-btn-reset" type="button">Очистить</button>
         </div>
-      </header>
+      </div>
 
       <nav class="analytics-tabs" role="tablist" aria-label="Разделы аналитики">
-        <button class="analytics-tab is-active" type="button" role="tab" aria-selected="true" data-tab="departments-dynamics">
+        <button class="analytics-tab is-active" type="button" role="tab" aria-selected="true" data-tab="dashboard">
+            Дашборд
+        </button>
+        <button class="analytics-tab" type="button" role="tab" aria-selected="false" data-tab="departments-dynamics">
             Динамика работы отделов
         </button>
         <button class="analytics-tab" type="button" role="tab" aria-selected="false" data-tab="departments-rating">
@@ -103,7 +106,10 @@
             <button class="analytics-floating-search" type="button">Поиск</button>
           </div>
         </div>
-        <div class="analytics-tab-panel is-active" data-content="departments-dynamics" role="tabpanel">
+        <div class="analytics-tab-panel is-active" data-content="dashboard" role="tabpanel">
+          <div class="analytics-dashboard-grid" id="analytics-dashboard-container"></div>
+        </div>
+        <div class="analytics-tab-panel" data-content="departments-dynamics" role="tabpanel" hidden>
           <div class="analytics-chart-placeholder">
 <!--            <div class="analytics-table-header" aria-hidden="true">-->
 <!--            </div>-->
@@ -113,7 +119,7 @@
 
         <div class="analytics-tab-panel" data-content="departments-rating" role="tabpanel" hidden>
           <div class="analytics-chart-placeholder">
-            <div id="analytics-departments-rating-container" class="analytics-departments-rating-grid"></div>
+            <div id="analytics-departments-rating-container" class="analytics-departments-rating-root"></div>
           </div>
         </div>
 
@@ -147,9 +153,10 @@
           </div>
         </div>
       </section>
-    </main>
+    </div>
 
     <script src="filters-loader.js"></script>
+    <script src="dashboard.js"></script>
     <script src="dynamics-table.js"></script>
     <script src="departments-rating-chart.js"></script>
     <script src="employees-rating.js"></script>

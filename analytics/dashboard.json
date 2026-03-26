@@ -1,0 +1,57 @@
+{
+  "plan": {
+    "quarterPlan": 23500000,
+    "departmentResult": 5825000,
+    "progressPercent": 33
+  },
+  "salesPlanByEmployee": [
+    { "name": "Сибирский К.", "percent": 125 },
+    { "name": "Долговой А.", "percent": 76 },
+    { "name": "Гольшманова Ю.", "percent": 94 },
+    { "name": "Дядька В.", "percent": 43 },
+    { "name": "Сибирский К.", "percent": 86 },
+    { "name": "Дядька В.", "percent": 43 },
+    { "name": "Сибирский К.", "percent": 86 }
+  ],
+  "clientsSources": [
+    { "label": "Яндекс", "percent": 36, "color": "#FEE114" },
+    { "label": "Google", "percent": 23, "color": "#111827" },
+    { "label": "Соц.сети", "percent": 12, "color": "#2980B9" },
+    { "label": "SEO", "percent": 15, "color": "#D1D80F" },
+    { "label": "Прямые", "percent": 14, "color": "#FF8888" }
+  ],
+  "resultPerPerson": {
+    "percent": 15,
+    "amount": 92250,
+    "planAmount": 615000
+  },
+
+  "employeeResults": [
+    { "name": "Сибирский К.", "percent": 125 },
+    { "name": "Долговой А.", "percent": 76 },
+    { "name": "Гольшманова Ю.", "percent": 94 },
+    { "name": "Дядька В.", "percent": 43 },
+    { "name": "Сибирский К.", "percent": 86 },
+    { "name": "Дядька В.", "percent": 43 },
+    { "name": "Сибирский К.", "percent": 86 }
+  ],
+
+  "kpiQuarter": 51,
+  "rotation": { "accepted": 10, "fired": 10 },
+  "departmentRating": { "currentPlace": 4, "bestPlace": 3, "worstPlace": 2, "increaseRemaining": 17000000 },
+  "top5Achievements": [
+    { "label": "1 кв. 2025", "amount": 17000000 },
+    { "label": "2 кв. 2025", "amount": 17000000 },
+    { "label": "3 кв. 2025", "amount": 17000000 },
+    { "label": "4 кв. 2025", "amount": 17000000 }
+  ],
+  "deals": { "opened": 50, "review": 2, "closed": 13, "rejected": 3 },
+  "kpiDependence": [
+    { "kpi": 70, "rop": 7 },
+    { "kpi": 75, "rop": 8 },
+    { "kpi": 80, "rop": 9 },
+    { "kpi": 85, "rop": 9.25 },
+    { "kpi": 90, "rop": 9.5 },
+    { "kpi": 95, "rop": 10 }
+  ]
+}

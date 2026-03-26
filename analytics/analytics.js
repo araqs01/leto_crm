@@ -3,6 +3,7 @@ const panels = document.querySelectorAll(".analytics-tab-panel");
 const analyticsWrapper = document.querySelector(".analytics-wrapper");
 
 const titleMap = {
+  "Дашборд": "Дашборд",
   "Динамика работы отделов": "Динамика работы",
   "Рейтинг отделов": "Рейтинг отделов",
   "Рейтинг сотрудников": "Рейтинг сотрудников",
@@ -11,6 +12,7 @@ const titleMap = {
 let chartsInitialized = false;
 let employeesRatingInitialized = false;
 let objectsRatingInitialized = false;
+let dashboardInitialized = false;
 
 function switchTab(targetId) {
   const activeTab = Array.from(tabs).find((tab) => tab.dataset.tab === targetId);
@@ -36,6 +38,17 @@ function switchTab(targetId) {
 
   if (typeof closeFloatingFilter === "function") {
     closeFloatingFilter();
+  }
+
+  if (targetId === "dashboard" && !dashboardInitialized && typeof window.initDashboard === "function") {
+    window
+      .initDashboard({ endpoint: "dashboard.json" })
+      .then(() => {
+        dashboardInitialized = true;
+      })
+      .catch((error) => {
+        console.error("Dashboard initialization failed:", error);
+      });
   }
 
   if (targetId === "departments-dynamics" && typeof window.initDynamicsTable === "function") {
@@ -226,7 +239,7 @@ function initFloatingFilterPanel() {
 
 async function initAnalyticsPage() {
   bindTabEvents();
-  switchTab("departments-dynamics");
+  switchTab("dashboard");
   initFloatingFilterPanel();
 
   if (typeof window.initAnalyticsFilters === "function") {
