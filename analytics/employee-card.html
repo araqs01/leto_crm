@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Карточка сотрудника</title>
+    <link rel="stylesheet" href="employee-card.css" />
+  </head>
+  <body>
+    <main class="employee-page">
+      <h1 class="employee-page-title">Карточка сотрудника</h1>
+
+      <section class="employee-card-shell">
+        <article class="employee-card-inner" id="employeeCardRoot">
+          <img class="employee-photo" id="employeePhoto" alt="Фото сотрудника" />
+
+          <div class="employee-info">
+            <h2 class="employee-name" id="employeeName"></h2>
+            <p class="employee-role" id="employeeRole"></p>
+            <p class="employee-dept" id="employeeDept"></p>
+
+            <div class="employee-contacts" id="employeeContacts"></div>
+          </div>
+        </article>
+      </section>
+
+    </main>
+
+    <script src="employee-card.js"></script>
+  </body>
+</html>
