@@ -79,7 +79,7 @@ body {
   height: 200px;
   border-radius: 50%;
   margin: 0 auto;
-  border: 1px solid currentColor;
+  border: 3px solid currentColor;
   object-fit: cover;
   display: block;
 }
