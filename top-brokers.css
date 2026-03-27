@@ -149,11 +149,14 @@ body {
 }
 
 .brokers-up-icon {
-  width: 11px;
-  height: 9px;
+  width: 12px;
+  height: 12px;
   display: block;
-  transform: rotate(90deg);
-  transform-origin: center;
+  color: var(--accent-up);
+}
+
+.brokers-up-icon path {
+  fill: currentColor;
 }
 
 .brokers-card-1 .brokers-meta,
@@ -281,7 +284,7 @@ body {
   top: 566px;
   width: 960px;
   height: 3px;
-  background: rgba(249, 250, 251, 0.72);
+  background: #D9D9D9;
 }
 
 .brokers-list-columns {
@@ -307,6 +310,16 @@ body {
 
 .brokers-list-up {
   color: var(--accent-up);
+  white-space: nowrap;
+}
+
+.brokers-list-down {
+  color: var(--accent-down);
+  white-space: nowrap;
+}
+
+.brokers-list-neutral {
+  color: #6b7280;
   white-space: nowrap;
 }
 
